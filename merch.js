@@ -4,61 +4,71 @@ const merchItems = [
         type: 'clothes',
         title: 'Xscape T-shirt',
         price: '$36',
-        imgUrl: 'https://i.imgur.com/iMbqr0u.jpg',
+        imgUrl: '/pics/iMbqr0u.jpg',
+     //   imgUrl: 'https://i.imgur.com/iMbqr0u.jpg',
     },
     {
         type: 'hat',
         title: 'Xscape Beanie', 
         price: '$26',
-        imgUrl: 'https://i.imgur.com/nqTTDJ3.jpg',
+        imgUrl: '/pics/nqTTDJ3.jpg',
+     //   imgUrl: 'https://i.imgur.com/nqTTDJ3.jpg',
     },
     {
         type: 'hat',
         title: 'Xscape Trucker Hat',
         price: '$30',
-        imgUrl: 'https://i.imgur.com/TiPGP1J.jpeg',
+        imgUrl: 'pics/TiPGP1J.jpeg',
+      //  imgUrl: 'https://i.imgur.com/TiPGP1J.jpeg',
     },
     {
         type: 'bag',
         title: 'Xscape Pouch',
         price: '$16',
-        imgUrl: 'https://i.imgur.com/gkQlgGc.jpg',
+        imgUrl: 'pics/gkQlgGc.jpg',
+      //  imgUrl: 'https://i.imgur.com/gkQlgGc.jpg',
     },
     {
         type: 'bag',
         title: 'Xscape Tote Bag',
         price: '$20',
-        imgUrl: 'https://i.imgur.com/rd9ZlTW.jpeg',
+        imgUrl: 'pics/rd9ZlTW.jpeg',
+      //  imgUrl: 'https://i.imgur.com/rd9ZlTW.jpeg',
     },
     {
         type: 'home',
         title: 'Xscape Coffee Mug',
         price: '$12',
-        imgUrl: 'https://i.imgur.com/lVzDmsC.jpg',
+        imgUrl: 'pics/lVzDmsC.jpg',
+        // https://i.imgur.com/lVzDmsC.jpg
     },
     {
         type: 'home',
         title: 'Xscape Throw Pillow',
         price: '$30',
-        imgUrl: 'https://i.imgur.com/R97JhCW.jpeg',
+        imgUrl: 'pics/R97JhCW.jpeg',
+       // imgUrl: 'https://i.imgur.com/R97JhCW.jpeg',
     },
     {
         type: 'clothes',
         title: 'Xscape Hoodie',
         price: '$40',
-        imgUrl: 'https://i.imgur.com/PAj6Xlm.jpg',
+        imgUrl: 'pics/PAj6Xlm.jpg',
+     //   imgUrl: 'https://i.imgur.com/PAj6Xlm.jpg',
     },
     {
         type: 'accessory',
         title: 'Xscape Phone Case',
         price: '$26',
-        imgUrl: 'https://i.imgur.com/6pMfcc1.jpeg',
+        imgUrl: 'pics/6pMfcc1.jpeg',
+     //   imgUrl: 'https://i.imgur.com/6pMfcc1.jpeg',
     },
     {
         type: 'accessory',
         title: 'Xscape Mask',
         price: '$16',
-        imgUrl: 'https://i.imgur.com/8dpIe9B.jpeg',
+        imgUrl: 'pics/8dpIe9B.jpeg',
+      //  imgUrl: 'https://i.imgur.com/8dpIe9B.jpeg',
     },
 ]
 
@@ -72,7 +82,7 @@ const merchPrinter = (merchItems) => {
     for (i=0; i < merchItems.length; i++) {
         domString += `
             <div class="card" style="width: 18rem;">
-                <img src="${merchItems[i].imgUrl}" class="card-img-top" alt="...">
+                <img src="${merchItems[i].imgUrl}" class="card-img-top" >
                     <div class="card-body">
                      <h5 class="card-title">${merchItems[i].title}</h5>
                         <h5 class="card-price">${merchItems[i].price}</h5>
