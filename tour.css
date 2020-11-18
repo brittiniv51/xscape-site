@@ -8,6 +8,13 @@
   height: 20px;
   margin: 0 14px;
 }
+.font_headers {
+  font-family: Playfair Display;
+}
+
+.font_txt {
+  font-family: Source Sans Pro;
+}
 
 h5 {
   font-family: Source Sans Pro;
