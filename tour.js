@@ -1,13 +1,112 @@
 const tourDates = [
    
-  {
-    type: 'studio',
-    date: '11-11-2020',
-    city: 'New York City',
-    venue: 'Madison Square Garden',
-    price: '$160',
+{
+  type: 'ticket',
+  date: '11/7/2020',
+  city: 'Miami Florida',
+  venue: 'Marlin Park',
+  price: '$160',
 },
-
+{
+  type: 'ticket',
+  date: '11/11/2020',
+  city: 'Atlanta, Georgia',
+  venue: 'Mercedes Benz Superdome',
+  price: '$160',
+  },  
+{
+  type: 'presale',
+  date: '11/13/2020',
+  city: 'Atlanta, Georgia',
+  venue: 'Georgia Dome',
+  price: '$160',
+},
+{
+type: 'appearances',
+date: '11/15/2020',
+city: 'Houston, Texas',
+venue: 'NRG Stadium',
+price: '$160',
+},
+{
+  type: 'ticket',
+  date: '11/18/2020',
+  city: 'Dallas, Texas',
+  venue: 'AT & T Stadium',
+  price: '$160',
+},
+{
+type: 'ticket',
+date: '11/20/2020',
+city: 'Los Angeles, California',
+venue: 'Rose Bowl',
+price: '$160',
+},
+{
+  type: 'appearances',
+  date: '11/21/2020',
+  city: 'Los Angeles, California',
+  venue: 'Staple Center',
+  price: '$160',
+  },
+{
+type: 'ticket',
+date: '12/3/2020',
+city: 'Seattle, Washington',
+venue: 'Centurylink Field',
+price: '$160',
+},
+{
+type: 'ticket',
+date: '12/5/2020',
+city: 'Toronto,Ontario',
+venue: 'Rogers Centre',
+price: '$160',
+},
+{
+  type: 'ticket',
+  date: '12/9/2020',
+  city: 'Chicago, Illinois',
+  venue: 'Soldier Field',
+  price: '$160',
+},
+{
+  type: 'presale',
+  date: '12/10/2020',
+  city: 'Chicago, Illinois',
+  venue: 'Soldier Field',
+  price: '$160',
+},
+{
+type: 'appearances',
+date: '12/12/2020',
+city: 'Flushing, New York',
+venue: 'Citi Field',
+price: '$160',
+}, 
+{
+  type: 'ticket',
+  date: '12/13/2020',
+  city: 'New York City, New York',
+  venue: 'Madison Square Garden',
+  price: '$160',
+},
+{
+type: 'ticket',
+date: '12/16/2020',
+city: 'Detroit, Michigan',
+venue: 'Ford Field',
+price: '$160',
+},
+{
+type: 'ticket',
+date: '12/19/2020',
+city: 'Nashville, Tennessee',
+venue: 'Nissan Stadium',
+price: '$160',
+}, 
+]
+// PrintToDom coding
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML = textToPrint
@@ -17,20 +116,142 @@ const tourPrinter = (tourDates) => {
   let domString = '';
   for (i=0; i < tourDates.length; i++) {
       domString += `
-          <div class="card" style="width: 18rem;">
-                  <div class="card-body">
-                    <h5 class="card-title">${tourDates[i].date}</h5>
-                    <h5 class="card-price">${tourDates[i].price}</h5>
-                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-                  </div>
-          </div>
+          <div class="col-2 ">${tourDates[i].date}</div>
+          <div class="col-3 ">${tourDates[i].city}</div>
+          <div class="col-3 ">${tourDates[i].venue}</div>
+          <div class="col-2 ">${tourDates[i].price}</div>
+          <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+          
       `
   }
-  console.log(merchPrinter)
-  printToDom('merchCards', domString)
-}
 
+  printToDom('tourCards', domString)
+}
+// initialize the start of functions
 const init = () => { 
-    merchPrinter(merchItems);
+    tourPrinter(tourDates);
 }
 init()
+
+const xTicket = tourDates.filter(item => item.type === 'ticket')
+//const xUpcoming = ticket.filter(item => item.type === 'upcoming')
+// const xPast = ticket.filter(item => item.type === 'past')
+const xPresale = tourDates.filter(item => item.type === 'presale')
+const xAppearances = tourDates.filter(item => item.type === 'appearances')
+const xall = tourDates.filter(item => item.type === 'ticket' || 'presale' || 'appearances')
+
+const tourDateSorter = () => {
+  let currentDate = new Date();
+  let currentMsec = Date.parse(currentDate);
+  console.log("current Msec is", currentMsec)
+  for (i=0; i < tourDates.length; i++) {
+    let tourTime = Date.parse(tourDates[i].date)
+    console.log("currentMsec is ", currentMsec)
+    console.log("tourTime is ", tourTime)
+    if (currentMsec >= tourTime) {
+      console.log("currentDate" + currentDate + " is after" + tourDates[i].date);
+      // push tourDates[i] into array named xPast
+    } else {
+      console.log("currentDate" + currentDate + " is before" + tourDates[i].date);
+      // push tourDates[i] into array named xUpcoming
+    };
+  };
+};
+
+
+const purchaseBtnSorter = () => {
+  let currentDate = new Date();
+  let currentMsec = Date.parse(currentDate);
+  console.log("current Msec is", currentMsec)
+  for (i=0; i < tourDates.length; i++) {
+    let tourTime = Date.parse(tourDates[i].date)
+    console.log("currentMsec is ", currentMsec)
+    console.log("tourTime is ", tourTime)
+    if (currentMsec >= tourTime) {
+      console.log("currentDate" + currentDate + " is after" + tourDates[i].date);
+      // push tourDates[i] into array named xPast
+    } else {
+      console.log("currentDate" + currentDate + " is before" + tourDates[i].date);
+      // push tourDates[i] into array named xUpcoming
+    };
+  };
+};
+
+const printUpcoming = () => {
+  document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xUpcoming.map(function (upcoming) {
+      return `
+      <div class="col-2 ">${upcoming.date}</div>
+      <div class="col-3 ">${upcoming.city}</div>
+      <div class="col-3 ">${upcoming.venue}</div>
+      <div class="col-2 ">${upcoming.price}</div>
+      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      ;
+    `; 
+  }).join('');
+}
+
+const printPast = () => {
+  document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xPast.map(function (past) {
+    return `
+      <div class="col-2 ">${past.date}</div>
+      <div class="col-3 ">${past.city}</div>
+      <div class="col-3 ">${past.venue}</div>
+      <div class="col-2 ">${past.price}</div>
+      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      ;
+    `; 
+  }).join('');
+}
+
+const printPresale = () => {
+  document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xPresale.map(function (presale) {
+      return `
+        <div class="col-2 ">${presale.date}</div>
+        <div class="col-3 ">${presale.city}</div>
+        <div class="col-3 ">${presale.venue}</div>
+        <div class="col-2 ">${presale.price}</div>
+        <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+        ;
+      `;
+  }).join('');
+}
+
+const printAppearances = () => {
+ document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xAppearances.map(function (appearances) {
+    return `
+      <div class="col-2 ">${appearances.date}</div>
+      <div class="col-3 ">${appearances.city}</div>
+      <div class="col-3 ">${appearances.venue}</div>
+      <div class="col-2 ">${appearances.price}</div>
+      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      ;
+    `;
+  }).join('');
+}
+
+const printAll = () => {
+  document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xall.map(function (all) {
+    return `
+      <div class="col-2 ">${all.date}</div>
+      <div class="col-3 ">${all.city}</div>
+      <div class="col-3 ">${all.venue}</div>
+      <div class="col-2 ">${all.price}</div>
+      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      ;
+    `;
+  }).join('');
+}
+
+// purchaseBtn sort function to see if past or future date
+// if future date print regular button
+// else print disabled buttonds
+
+const purchaseAlert = () => {
+alert("Your ticket has been purchased! See you there!")
+}
+
+document.getElementById('upcoming-btn').addEventListener('click', printUpcoming);
+document.getElementById('past-btn').addEventListener('click', printPast);
+ document.getElementById('presale-btn').addEventListener('click', printPresale);
+document.getElementById('appearances-btn').addEventListener('click', printAppearances)
+document.getElementById('all-btn').addEventListener('click', printAll)

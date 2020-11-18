@@ -68,20 +68,20 @@ const printToDom = (divId, textToPrint) => {
 };
 
 const merchPrinter = (merchItems) => {
-  let domString = '';
-  for (i=0; i < merchItems.length; i++) {
-      domString += `
-          <div class="card" style="width: 18rem;">
-              <img src="${merchItems[i].imgUrl}" class="card-img-top" >
-                  <div class="card-body">
-                   <h5 class="card-title">${merchItems[i].title}</h5>
-                      <h5 class="card-price">${merchItems[i].price}</h5>
-                      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-                  </div>
-          </div>
-      `
+    let domString = '';
+    for (i=0; i < merchItems.length; i++) {
+        domString += `
+            <div class="card" style="width: 18rem;">
+                <img src="${merchItems[i].imgUrl}" class="card-img-top" >
+                <div class="card-body font_txt">
+                    <h5 class="card-title">${merchItems[i].title}</h5>
+                    <h5 class="card-price">${merchItems[i].price}</h5>
+                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+                </div>
+            </div>
+        `
   }
-  console.log(merchPrinter)
+
   printToDom('merchCards', domString)
 }
 
@@ -92,94 +92,67 @@ init()
 
 const xStudio = merchItems.filter(item => item.type === 'studio')
 const xCompilation = merchItems.filter(item => item.type === 'compilation')
-// const xBag = merchItems.filter(item => item.type === 'bag')
 const xSingles = merchItems.filter(item => item.type === 'singles')
-// const xAccessory = merchItems.filter(item => item.type === 'accessory')
 const all = merchItems.filter(item => item.type === 'studio' || 'compilation' || 'singles')
 
 
 const printStudio = () => {
-  document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xStudio.map(function (studio) {
-      return `
-      <div class="card" style="width: 18rem;">
-              <img src="${studio.imgUrl}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                   <h5 class="card-title">${studio.title}</h5>
-                      <h5 class="card-price">${studio.price}</h5>
-                      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-          </div>
+    document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xStudio.map(function (studio) {
+        return `
+            <div class="card" style="width: 18rem;">
+                <img src="${studio.imgUrl}" class="card-img-top" alt="...">
+                <div class="card-body font_txt">
+                    <h5 class="card-title">${studio.title}</h5>
+                    <h5 class="card-price">${studio.price}</h5>
+                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+                </div>
+            </div>
       `; 
-  }).join('');
+    }).join('');
 }
 
 const printCompilation = () => {
-  document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xCompilation.map(function (compilation) {
-      return `
-      <div class="card" style="width: 18rem;">
-              <img src="${compilation.imgUrl}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                   <h5 class="card-title">${compilation.title}</h5>
-                      <h5 class="card-price">${compilation.price}</h5>
-                      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-          </div>
-      `;
-  }).join('');
+    document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xCompilation.map(function (compilation) {
+        return `
+            <div class="card" style="width: 18rem;">
+                <img src="${compilation.imgUrl}" class="card-img-top" alt="...">
+                <div class="card-body font_txt">
+                    <h5 class="card-title">${compilation.title}</h5>
+                    <h5 class="card-price">${compilation.price}</h5>
+                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+                </div>
+            </div>`;
+    }).join('');
 }
-
-// const printBag = () => {
-//   document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xBag.map(function (bag) {
-//       return `
-//       <div class="card" style="width: 18rem;">
-//               <img src="${bag.imgUrl}" class="card-img-top" alt="...">
-//                   <div class="card-body">
-//                    <h5 class="card-title">${bag.title}</h5>
-//                       <h5 class="card-price">${bag.price}</h5>
-//                       <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-//           </div>
-//       `;
-//   }).join('');
-// }
 
 const printSingles = () => {
-  document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xSingles.map(function (singles) {
-      return `
-      <div class="card" style="width: 18rem;">
-              <img src="${singles.imgUrl}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                   <h5 class="card-title">${singles.title}</h5>
-                      <h5 class="card-price">${singles.price}</h5>
-                      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-          </div>
-      `;
-  }).join('');
+   document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xSingles.map(function (singles) {
+        return `
+            <div class="card" style="width: 18rem;">
+                <img src="${singles.imgUrl}" class="card-img-top" alt="...">
+                <div class="card-body font_txt">
+                    <h5 class="card-title">${singles.title}</h5>
+                    <h5 class="card-price">${singles.price}</h5>
+                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 
-// const printAssessories = () => {
-//   document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xAccessory.map(function (accessory) {
-//       return `
-//       <div class="card" style="width: 18rem;">
-//               <img src="${accessory.imgUrl}" class="card-img-top" alt="...">
-//                   <div class="card-body">
-//                    <h5 class="card-title">${accessory.title}</h5>
-//                       <h5 class="card-price">${accessory.price}</h5>
-//                       <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-//           </div>
-//       `;
-//   }).join('');
-// }
-
 const printAll = () => {
-  document.getElementById("merchCards").innerHTML = merchItems.innerHTML = all.map(function (all) {
-      return `
-      <div class="card" style="width: 18rem;">
-              <img src="${all.imgUrl}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                   <h5 class="card-title">${all.title}</h5>
-                      <h5 class="card-price">${all.price}</h5>
-                      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>                    </div>
-          </div>
-      `;
-  }).join('');
+    document.getElementById("merchCards").innerHTML = merchItems.innerHTML = all.map(function (all) {
+        return `
+            <div class="card" style="width: 18rem;">
+                <img src="${all.imgUrl}" class="card-img-top" alt="...">
+                <div class="card-body font_txt">
+                    <h5 class="card-title">${all.title}</h5>
+                    <h5 class="card-price">${all.price}</h5>
+                    <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+                </div>
+            </div>
+        `;
+    }).join('');
 }
 const purchaseAlert = () => {
   alert("Your music is on the way!")
@@ -187,7 +160,5 @@ const purchaseAlert = () => {
 
 document.getElementById('studio-btn').addEventListener('click', printStudio);
 document.getElementById('compilation-btn').addEventListener('click', printCompilation);
-// document.getElementById('bag-btn').addEventListener('click', printBag);
 document.getElementById('singles-btn').addEventListener('click', printSingles)
-// document.getElementById('accessories-btn').addEventListener('click', printAssessories)
 document.getElementById('all-btn').addEventListener('click', printAll)
