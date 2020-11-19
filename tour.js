@@ -111,18 +111,37 @@ const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML = textToPrint
 };
+//  Declaring varibles
+let xPast = []
+let xUpcoming = []
+let currentDate = new Date();
+let currentMsec = Date.parse(currentDate);
 
+// initial printer
 const tourPrinter = (tourDates) => {
   let domString = '';
   for (i=0; i < tourDates.length; i++) {
+    domString += `
+    <div class="col-2 ">${tourDates[i].date}</div>
+    <div class="col-3 ">${tourDates[i].city}</div>
+    <div class="col-3 ">${tourDates[i].venue}</div>
+    <div class="col-2 ">${tourDates[i].price}</div>
+    `
+    // set button for past events
+    let tourTime = Date.parse(tourDates[i].date)
+    if (currentMsec >= tourTime) {
+      xPast.push(tourDates[i])
       domString += `
-          <div class="col-2 ">${tourDates[i].date}</div>
-          <div class="col-3 ">${tourDates[i].city}</div>
-          <div class="col-3 ">${tourDates[i].venue}</div>
-          <div class="col-2 ">${tourDates[i].price}</div>
-          <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-          
+      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>  
       `
+    } else {
+      if (currentMsec <= tourTime) {
+        xUpcoming.push(tourDates[i])
+        domString += `
+        <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>  
+      `
+      };
+    };
   }
 
   printToDom('tourCards', domString)
@@ -133,63 +152,26 @@ const init = () => {
 }
 init()
 
+// filter for buttons
 const xTicket = tourDates.filter(item => item.type === 'ticket')
-//const xUpcoming = ticket.filter(item => item.type === 'upcoming')
-// const xPast = ticket.filter(item => item.type === 'past')
 const xPresale = tourDates.filter(item => item.type === 'presale')
 const xAppearances = tourDates.filter(item => item.type === 'appearances')
 const xall = tourDates.filter(item => item.type === 'ticket' || 'presale' || 'appearances')
 
-const tourDateSorter = () => {
-  let currentDate = new Date();
-  let currentMsec = Date.parse(currentDate);
-  console.log("current Msec is", currentMsec)
-  for (i=0; i < tourDates.length; i++) {
-    let tourTime = Date.parse(tourDates[i].date)
-    console.log("currentMsec is ", currentMsec)
-    console.log("tourTime is ", tourTime)
-    if (currentMsec >= tourTime) {
-      console.log("currentDate" + currentDate + " is after" + tourDates[i].date);
-      // push tourDates[i] into array named xPast
-    } else {
-      console.log("currentDate" + currentDate + " is before" + tourDates[i].date);
-      // push tourDates[i] into array named xUpcoming
-    };
-  };
-};
-
-
-const purchaseBtnSorter = () => {
-  let currentDate = new Date();
-  let currentMsec = Date.parse(currentDate);
-  console.log("current Msec is", currentMsec)
-  for (i=0; i < tourDates.length; i++) {
-    let tourTime = Date.parse(tourDates[i].date)
-    console.log("currentMsec is ", currentMsec)
-    console.log("tourTime is ", tourTime)
-    if (currentMsec >= tourTime) {
-      console.log("currentDate" + currentDate + " is after" + tourDates[i].date);
-      // push tourDates[i] into array named xPast
-    } else {
-      console.log("currentDate" + currentDate + " is before" + tourDates[i].date);
-      // push tourDates[i] into array named xUpcoming
-    };
-  };
-};
-
+// printer for upcoming
 const printUpcoming = () => {
   document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xUpcoming.map(function (upcoming) {
       return `
-      <div class="col-2 ">${upcoming.date}</div>
-      <div class="col-3 ">${upcoming.city}</div>
-      <div class="col-3 ">${upcoming.venue}</div>
-      <div class="col-2 ">${upcoming.price}</div>
-      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-      ;
-    `; 
+        <div class="col-2 ">${upcoming.date}</div>
+        <div class="col-3 ">${upcoming.city}</div>
+        <div class="col-3 ">${upcoming.venue}</div>
+        <div class="col-2 ">${upcoming.price}</div>
+        <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      ` 
   }).join('');
 }
 
+// printer for past button
 const printPast = () => {
   document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xPast.map(function (past) {
     return `
@@ -197,59 +179,86 @@ const printPast = () => {
       <div class="col-3 ">${past.city}</div>
       <div class="col-3 ">${past.venue}</div>
       <div class="col-2 ">${past.price}</div>
-      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-      ;
+      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button> 
     `; 
   }).join('');
 }
 
+// printer for presale button
 const printPresale = () => {
   document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xPresale.map(function (presale) {
+    let presaleTime = Date.parse(presale.date)
+    if (currentMsec >= presaleTime) {
+      return `
+      <div class="col-2 ">${presale.date}</div>
+      <div class="col-3 ">${presale.city}</div>
+      <div class="col-3 ">${presale.venue}</div>
+      <div class="col-2 ">${presale.price}</div>
+      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+    `;
+    }
       return `
         <div class="col-2 ">${presale.date}</div>
         <div class="col-3 ">${presale.city}</div>
         <div class="col-3 ">${presale.venue}</div>
         <div class="col-2 ">${presale.price}</div>
         <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-        ;
       `;
   }).join('');
 }
-
+// printer for appearance button
 const printAppearances = () => {
  document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xAppearances.map(function (appearances) {
+  let appearancesTime = Date.parse(appearances.date)
+  if (currentMsec >= appearancesTime) {
+    return `
+    <div class="col-2 ">${appearances.date}</div>
+    <div class="col-3 ">${appearances.city}</div>
+    <div class="col-3 ">${appearances.venue}</div>
+    <div class="col-2 ">${appearances.price}</div>
+    <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+    `;
+  }
     return `
       <div class="col-2 ">${appearances.date}</div>
       <div class="col-3 ">${appearances.city}</div>
       <div class="col-3 ">${appearances.venue}</div>
       <div class="col-2 ">${appearances.price}</div>
       <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-      ;
     `;
   }).join('');
 }
 
+// printer for all button
+
 const printAll = () => {
   document.getElementById("tourCards").innerHTML = tourDates.innerHTML = xall.map(function (all) {
-    return `
+    let allTime = Date.parse(all.date)
+    if (currentMsec >= allTime) {
+      return `
       <div class="col-2 ">${all.date}</div>
       <div class="col-3 ">${all.city}</div>
       <div class="col-3 ">${all.venue}</div>
       <div class="col-2 ">${all.price}</div>
-      <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
-      ;
-    `;
-  }).join('');
-}
+      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+      `;
+    }
+      return `
+        <div class="col-2 ">${all.date}</div>
+        <div class="col-3 ">${all.city}</div>
+        <div class="col-3 ">${all.venue}</div>
+        <div class="col-2 ">${all.price}</div>
+        <button onclick="purchaseAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Purchase</button>
+      `;
+    }).join('');
+  }
 
-// purchaseBtn sort function to see if past or future date
-// if future date print regular button
-// else print disabled buttonds
-
+// purchase alert function
 const purchaseAlert = () => {
 alert("Your ticket has been purchased! See you there!")
 }
 
+// button click listener
 document.getElementById('upcoming-btn').addEventListener('click', printUpcoming);
 document.getElementById('past-btn').addEventListener('click', printPast);
  document.getElementById('presale-btn').addEventListener('click', printPresale);
