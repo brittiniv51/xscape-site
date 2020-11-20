@@ -132,7 +132,7 @@ const tourPrinter = (tourDates) => {
     if (currentMsec >= tourTime) {
       xPast.push(tourDates[i])
       domString += `
-      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>  
+      <button onclick="pastDateAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>  
       `
     } else {
       if (currentMsec <= tourTime) {
@@ -179,7 +179,7 @@ const printPast = () => {
       <div class="col-3 ">${past.city}</div>
       <div class="col-3 ">${past.venue}</div>
       <div class="col-2 ">${past.price}</div>
-      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button> 
+      <button onclick="pastDateAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button> 
     `; 
   }).join('');
 }
@@ -194,7 +194,7 @@ const printPresale = () => {
       <div class="col-3 ">${presale.city}</div>
       <div class="col-3 ">${presale.venue}</div>
       <div class="col-2 ">${presale.price}</div>
-      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+      <button onclick="pastDateAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
     `;
     }
       return `
@@ -216,7 +216,7 @@ const printAppearances = () => {
     <div class="col-3 ">${appearances.city}</div>
     <div class="col-3 ">${appearances.venue}</div>
     <div class="col-2 ">${appearances.price}</div>
-    <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+    <button onclick="pastDateAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
     `;
   }
     return `
@@ -240,7 +240,7 @@ const printAll = () => {
       <div class="col-3 ">${all.city}</div>
       <div class="col-3 ">${all.venue}</div>
       <div class="col-2 ">${all.price}</div>
-      <button  id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
+      <button onclick="pastDateAlert()" id="btn-5" class="btn btn-dark purchase-btn-group button--5">Past event</button>
       `;
     }
       return `
@@ -257,6 +257,11 @@ const printAll = () => {
 const purchaseAlert = () => {
 alert("Your ticket has been purchased! See you there!")
 }
+
+//  alert of past event function
+const pastDateAlert = () => {
+  alert("Sorry you missed this date")
+  }
 
 // button click listener
 document.getElementById('upcoming-btn').addEventListener('click', printUpcoming);
