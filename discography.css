@@ -17,3 +17,17 @@
 .font_txt {
   font-family: Source Sans Pro;
 }
+
+.margin_10 {
+  margin: 10px;
+}
+
+.background_img { 
+  width: 100vw;
+  height: 100vh;
+  background: url(https://image.freepik.com/free-vector/spot-light-background_1284-4685.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

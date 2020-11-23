@@ -8,32 +8,6 @@
   background-size: cover;
 }
 
-.social-icons{
-  width: 200px;
-  text-align: center;
-   position: relative;
-  margin-left: 150px;
-}
-.social-icons img{
-  height: 20px;
-  margin: 0 14px;
-}
 .font_headers {
-  font-family: Playfair Display;
-}
-
-.font_txt {
-  font-family: Source Sans Pro;
-}
-
-h5 {
-  font-family: Source Sans Pro;
-}
-
-h4 {
-  font-family: Playfair Display;
-}
-
-button {
   font-family: Playfair Display;
 }

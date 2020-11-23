@@ -52,7 +52,7 @@ const merchPrinter = (merchItems) => {
     let domString = '';
     for (i=0; i < merchItems.length; i++) {
         domString += `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${merchItems[i].imgUrl}" class="card-img-top" alt="...">
         
             </div>
@@ -78,11 +78,9 @@ const xAllPhotos = merchItems.filter(item => item.type === 'LivePhotos' || 'Offi
 const printLivePhotos = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xLivePhotos.map(function (LivePhotos) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${LivePhotos.imgUrl}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                
-                     </div>
+
             </div>
         `; 
     }).join('');
@@ -91,11 +89,9 @@ const printLivePhotos = () => {
 const printOfficialPhotos = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xOfficialPhotos.map(function (OfficialPhotos) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${OfficialPhotos.imgUrl}" class="card-img-top" alt="...">
-                    <div class="card-body">
-            
-                     </div>
+
             </div>
         `;
     }).join('');
@@ -104,11 +100,9 @@ const printOfficialPhotos = () => {
 const printBehindTheScenesPhotos = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xBehindTheScenesPhotos.map(function (BehindTheScenesPhotos) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${BehindTheScenesPhotos.imgUrl}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                
-                     </div>
+
             </div>
         `;
     }).join('');
@@ -145,10 +139,9 @@ const printBehindTheScenesPhotos = () => {
 const printAllPhotos = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xAllPhotos.map(function (allphotos) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${allphotos.imgUrl}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      </div>
+
             </div>
         `;
     }).join('');

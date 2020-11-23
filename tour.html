@@ -9,7 +9,7 @@
 </head>
 <body>  
   <!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light" style="background: #e3f2fd;">
   <a class="navbar-brand font_headers" href="about.html">Xscape</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -40,47 +40,50 @@
     </ul>
   </div>
 </nav>
-<!--Buttons-->
-<div class="col-md-12 text-center">
-  <div class="btn btn-lg col-md-8 font_headers"> 
-    <button type="button" id="upcoming-btn"class="btn btn-secondary">Upcoming</button>
-    <button type="button" id="past-btn" class="btn btn-secondary">Past</button>
-    <button type="button" id="presale-btn" class="btn btn-secondary">Presale</button>
-    <button type="button" id="appearances-btn" class="btn btn-secondary">Appearances </button>
-    <button type="button" id="all-btn" class="btn btn-secondary">All</button>
-  </div>
-</div>
+<!-- background layout-->
+<div class="background_img">
 
-
-<h4>
-  <div class="mx-auto" style="width: 400px;">
-      Xscape Fall 2020 Tour Date TBD
+  <!--Buttons-->
+  <div class="col-md-12 text-center">
+    <div class="btn btn-lg col-md-8 font_headers"> 
+      <button type="button" id="upcoming-btn"class="btn btn-secondary">Upcoming</button>
+      <button type="button" id="past-btn" class="btn btn-secondary">Past</button>
+      <button type="button" id="presale-btn" class="btn btn-secondary">Presale</button>
+      <button type="button" id="appearances-btn" class="btn btn-secondary">Appearances </button>
+      <button type="button" id="all-btn" class="btn btn-secondary">All</button>
     </div>
-</h4>
-<hr>
-
-<div id="tourCards" class="d-flex justify-content-center flex-wrap">
-</div>
-
-<!--Forms-->
-<form>
-  <hr>
-  <h6>Enter you email information to stay up to date on Xscape.</h6>
-  <br>
-
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
-  <button type="button" class="btn btn-secondary btn-sm">Sign up</button>
+
+
+  <h4>
+    <div class="mx-auto" style="width: 400px;">
+        Xscape Fall 2020 Tour Date TBD
+      </div>
+  </h4>
   <hr>
 
-</form>
+  <div id="tourCards" class="d-flex justify-content-center flex-wrap">
+  </div>
+
+  <!--Forms-->
+  <form>
+    <hr>
+    <h6>Enter you email information to stay up to date on Xscape.</h6>
+    <br>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <button type="button" class="btn btn-secondary btn-sm">Sign up</button>
+    <hr>
+
+  </form>
 
 
-<div id="tourCards" class="d-flex justify-content-center flex-wrap font_txt">
-</div>
-  
+  <div id="tourCards" class="d-flex justify-content-center flex-wrap font_txt">
+  </div>
+</div>  
   <script src="tour.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

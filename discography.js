@@ -71,7 +71,7 @@ const merchPrinter = (merchItems) => {
     let domString = '';
     for (i=0; i < merchItems.length; i++) {
         domString += `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${merchItems[i].imgUrl}" class="card-img-top" >
                 <div class="card-body font_txt">
                     <h5 class="card-title">${merchItems[i].title}</h5>
@@ -99,7 +99,7 @@ const all = merchItems.filter(item => item.type === 'studio' || 'compilation' ||
 const printStudio = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xStudio.map(function (studio) {
         return `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${studio.imgUrl}" class="card-img-top" alt="...">
                 <div class="card-body font_txt">
                     <h5 class="card-title">${studio.title}</h5>
@@ -114,7 +114,7 @@ const printStudio = () => {
 const printCompilation = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xCompilation.map(function (compilation) {
         return `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${compilation.imgUrl}" class="card-img-top" alt="...">
                 <div class="card-body font_txt">
                     <h5 class="card-title">${compilation.title}</h5>
@@ -128,7 +128,7 @@ const printCompilation = () => {
 const printSingles = () => {
    document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xSingles.map(function (singles) {
         return `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${singles.imgUrl}" class="card-img-top" alt="...">
                 <div class="card-body font_txt">
                     <h5 class="card-title">${singles.title}</h5>
@@ -143,7 +143,7 @@ const printSingles = () => {
 const printAll = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = all.map(function (all) {
         return `
-            <div class="card" style="width: 18rem;">
+            <div class="card margin_10" style="width: 18rem;">
                 <img src="${all.imgUrl}" class="card-img-top" alt="...">
                 <div class="card-body font_txt">
                     <h5 class="card-title">${all.title}</h5>
