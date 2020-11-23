@@ -9,44 +9,60 @@
 </head>
 <body>
 <!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="about.html">Xscape</a>
+<nav class="navbar navbar-expand-lg navbar-light" style="background: #e3f2fd;">
+  <a class="navbar-brand font_headers" href="about.html">Xscape</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <div class="collapse navbar-collapse font_txt" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="about.html">About <span class="sr-only">(current)</span></a>
+      <li class="nav-item ">
+        <a class="nav-link" href="about.html">About </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tour.html">Tour</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="merch.html">Merch</a>
-      </li>     
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="discography.html">Discography</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="photos.html">Photos</a>
+      </li> 
+
+       <div class="social-icons">
+        <a href="https://twitter.com/thegroupxscape?lang=en" target="_blank" ><img src="img/twitter.png" alt="twitter icon"></a>
+        <a href="https://www.instagram.com/officialxscape/?hl=en" target="_blank" ><img src="img/instagram.png" alt="instagram icon">
+        <a href="https://www.facebook.com/XscapeOfficial/" target="_blank" ><img src="img/facebook.png" alt="facebook icon"></a>
+      </div> 
     </ul>
   </div>
 </nav>
-<!--Buttons-->
-<div class="col-md-12 text-center">
-  <div class="btn btn-lg col-md-8"> 
-    <button type="button" id="clothes-btn" class="btn btn-secondary">Clothes</button>
-    <button type="button" id="hat-btn" class="btn btn-secondary">Hats</button>
-    <button type="button" id="bag-btn" class="btn btn-secondary">Bags</button>
-    <button type="button" id="home-btn" class="btn btn-secondary">Home</button>
-    <button type="button" id="accessories-btn" class="btn btn-secondary">Accesories</button>
-    <button type="button" id="all-btn" class="btn btn-secondary">All Merch</button>
+
+<!-- background layout-->
+<div class="background_img">
+
+  <!--Buttons-->
+  <div class="col-md-12 text-center">
+    <div class="btn btn-lg col-md-8"> 
+      <button type="button" id="clothes-btn" class="btn btn-secondary">Clothes</button>
+      <button type="button" id="hat-btn" class="btn btn-secondary">Hats</button>
+      <button type="button" id="bag-btn" class="btn btn-secondary">Bags</button>
+      <button type="button" id="home-btn" class="btn btn-secondary">Home</button>
+      <button type="button" id="accessories-btn" class="btn btn-secondary">Accesories</button>
+      <button type="button" id="all-btn" class="btn btn-secondary">All Merch</button>
+
+    </div>
+  </div>
+
+
+
+  <div id="merchCards" class="d-flex justify-content-center flex-wrap ">
 
   </div>
 </div>
-
-
-
-<div id="merchCards" class="d-flex justify-content-center flex-wrap">
-
-</div>
-
 <script src="merch.js"></script>
 </body>
 </html>
