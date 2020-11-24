@@ -4,61 +4,61 @@ const merchItems = [
         type: 'clothes',
         title: 'Xscape T-shirt',
         price: '$36',
-        imgUrl: 'https://i.imgur.com/iMbqr0u.jpg',
+        imgUrl: '/pics/iMbqr0u.jpg',
     },
     {
         type: 'hat',
         title: 'Xscape Beanie', 
         price: '$26',
-        imgUrl: 'https://i.imgur.com/nqTTDJ3.jpg',
+        imgUrl: '/pics/nqTTDJ3.jpg',
     },
     {
         type: 'hat',
         title: 'Xscape Trucker Hat',
         price: '$30',
-        imgUrl: 'https://i.imgur.com/TiPGP1J.jpeg',
+        imgUrl: 'pics/TiPGP1J.jpeg',
     },
     {
         type: 'bag',
         title: 'Xscape Pouch',
         price: '$16',
-        imgUrl: 'https://i.imgur.com/gkQlgGc.jpg',
+        imgUrl: 'pics/gkQlgGc.jpg',
     },
     {
         type: 'bag',
         title: 'Xscape Tote Bag',
         price: '$20',
-        imgUrl: 'https://i.imgur.com/rd9ZlTW.jpeg',
+        imgUrl: 'pics/rd9ZlTW.jpeg',
     },
     {
         type: 'home',
         title: 'Xscape Coffee Mug',
         price: '$12',
-        imgUrl: 'https://i.imgur.com/lVzDmsC.jpg',
+        imgUrl: 'pics/lVzDmsC.jpg',
     },
     {
         type: 'home',
         title: 'Xscape Throw Pillow',
         price: '$30',
-        imgUrl: 'https://i.imgur.com/R97JhCW.jpeg',
+        imgUrl: 'pics/R97JhCW.jpeg',
     },
     {
         type: 'clothes',
         title: 'Xscape Hoodie',
         price: '$40',
-        imgUrl: 'https://i.imgur.com/PAj6Xlm.jpg',
+        imgUrl: 'pics/PAj6Xlm.jpg',
     },
     {
         type: 'accessory',
         title: 'Xscape Phone Case',
         price: '$26',
-        imgUrl: 'https://i.imgur.com/6pMfcc1.jpeg',
+        imgUrl: 'pics/6pMfcc1.jpeg',
     },
     {
         type: 'accessory',
         title: 'Xscape Mask',
         price: '$16',
-        imgUrl: 'https://i.imgur.com/8dpIe9B.jpeg',
+        imgUrl: 'pics/8dpIe9B.jpeg',
     },
 ]
 
@@ -71,8 +71,8 @@ const merchPrinter = (merchItems) => {
     let domString = '';
     for (i=0; i < merchItems.length; i++) {
         domString += `
-            <div class="card" style="width: 18rem;">
-                <img src="${merchItems[i].imgUrl}" class="card-img-top" alt="...">
+            <div class="card margin_10" style="width: 18rem;">
+                <img src="${merchItems[i].imgUrl}" class="card-img-top" >
                     <div class="card-body">
                      <h5 class="card-title">${merchItems[i].title}</h5>
                         <h5 class="card-price">${merchItems[i].price}</h5>
@@ -101,7 +101,7 @@ const all = merchItems.filter(item => item.type === 'clothes' || 'hat' || 'bag' 
 const printClothes = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xClothes.map(function (clothes) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${clothes.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${clothes.title}</h5>
@@ -115,7 +115,7 @@ const printClothes = () => {
 const printHat = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xHat.map(function (hat) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${hat.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${hat.title}</h5>
@@ -129,7 +129,7 @@ const printHat = () => {
 const printBag = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xBag.map(function (bag) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${bag.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${bag.title}</h5>
@@ -143,7 +143,7 @@ const printBag = () => {
 const printHome = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xHome.map(function (home) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${home.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${home.title}</h5>
@@ -157,7 +157,7 @@ const printHome = () => {
 const printAssessories = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = xAccessory.map(function (accessory) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${accessory.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${accessory.title}</h5>
@@ -171,7 +171,7 @@ const printAssessories = () => {
 const printAll = () => {
     document.getElementById("merchCards").innerHTML = merchItems.innerHTML = all.map(function (all) {
         return `
-        <div class="card" style="width: 18rem;">
+        <div class="card margin_10" style="width: 18rem;">
                 <img src="${all.imgUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                      <h5 class="card-title">${all.title}</h5>

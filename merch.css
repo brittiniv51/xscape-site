@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+.col-md-12 {
+    padding: 20px;
+}
+
+.button {
+    margin: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 4px;
+  }
+
+.card {
+    align-items: center;
+    text-align: center;
+    border: 0px;
+}
+
+.carousel-item {
+  width: 300px;
+  height: 300px !important;
+}
+
+.carousel-item img {
+  position: absolute;
+  min-height: 300px;
+}
+
+.container-fluid {
+    width: 75%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: center;
+}
+.background_img { 
+
+  background: url(https://image.freepik.com/free-vector/spot-light-background_1284-4685.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.social-icons{
+  width: 200px;
+  text-align: center;
+   position: relative;
+  margin-left: 150px;
+}
+.social-icons img{
+  height: 20px;
+  margin: 0 14px;
+}
+.font_headers {
+  font-family: Playfair Display;
+}
+
+.font_txt {
+  font-family: Source Sans Pro;
+}
+
+h5 {
+  font-family: Source Sans Pro;
+}
+
+h4 {
+  font-family: Playfair Display;
+}
+
+button {
+  font-family: Playfair Display;
+}
+
+.margin_10 {
+  margin: 10px;
+}
